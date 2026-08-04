@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sleep Token</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #111;
+            color: #f2f2f2;
+            line-height: 1.6;
+        }
+
+        .cabecalho {
+            background: #000;
+            text-align: center;
+            padding: 30px;
+            border-bottom: 3px solid #caa64b;
+        }
+
+        .cabecalho h1 {
+            color: #caa64b;
+            font-size: 42px;
+            letter-spacing: 3px;
+        }
+
+        .menu {
+            background: #7b1113;
+        }
+
+        .menu ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        .menu li a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 15px 25px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .menu li a:hover {
+            background: #caa64b;
+            color: black;
+        }
+
+        .container {
+            display: flex;
+            max-width: 1200px;
+            margin: 25px auto;
+            gap: 20px;
+            padding: 10px;
+        }
+
+        .principal {
+            flex: 3;
+            background: #1b1b1b;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        .lateral {
+            flex: 1;
+            background: #262626;
+            padding: 20px;
+            border-radius: 10px;
+            height: fit-content;
+            border-left: 4px solid #caa64b;
+        }
+
+        .artigo {
+            margin-bottom: 30px;
+        }
+
+        .secao {
+            margin-top: 25px;
+        }
+
+        h2 {
+            color: #caa64b;
+            margin-bottom: 10px;
+        }
+
+        h3 {
+            color: #d4af37;
+            margin-bottom: 8px;
+        }
+
+        p {
+            text-align: justify;
+        }
+
+        .imagem-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .imagem-container img {
+            width: 100%;
+            max-width: 700px;
+            border-radius: 10px;
+            border: 3px solid #7b1113;
+            transition: 0.4s;
+        }
+
+        .imagem-container img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 20px rgba(202,166,75,0.5);
+        }
+
+        .lateral ul {
+            margin-left: 18px;
+        }
+
+        .lateral li {
+            margin-bottom: 12px;
+        }
+
+        .rodape {
+            background: black;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+            border-top: 3px solid #caa64b;
+        }
+
+        @media(max-width:900px) {
+
+            .container {
+                flex-direction: column;
+            }
+
+            .menu ul {
+                flex-direction: column;
+            }
+
+            .menu li {
+                text-align: center;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="cabecalho">
+        <h1>࿔˚⋆ 𝐒𝐋𝐄𝐄𝐏 𝐓𝐎𝐊𝐄𝐍 ⋆˚࿔</h1>
+    </div>
+
+    <div class="menu">
+        <ul>
+            <li><a href="#historia">História</a></li>
+            <li><a href="#integrantes">Integrantes</a></li>
+            <li><a href="#albuns">Álbuns</a></li>
+            <li><a href="#curiosidades">Curiosidades</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <div class="principal">
+            <div class="artigo">
+                <h2 id="historia">A História da Banda ˎˊ˗</h2>
+                <p><strong>Publicado em 2026</strong></p>
+                <div class="imagem-container">
+                    <img src="sleeptoken.jpg" alt="Banda Sleep Token">
+                </div>
+
+                <div class="secao">
+                    <h3>Origem</h3>
+                    <p>
+                        Sleep Token é uma banda formada em Londres, Inglaterra, em 2016.
+                        O grupo ficou conhecido pelo anonimato de seus integrantes e por misturar
+                        metal progressivo, rock alternativo, R&B, música eletrônica e pop.
+                        Sua identidade visual é marcada por máscaras, roupas ritualísticas
+                        e apresentações cheias de simbolismo.
+                    </p>
+                </div>
+
+                <div class="secao">
+                    <h3>História</h3>
+                    <p>
+                        Segundo a história criada pela própria banda, o vocalista Vessel teria
+                        recebido em sonhos o chamado de uma entidade conhecida como <strong>Sleep</strong>.
+                        As músicas seriam oferendas ("tokens") dedicadas a essa entidade,
+                        criando uma narrativa única que acompanha toda a carreira do grupo.
+                    </p>
+                </div>
+
+                <div class="secao">
+                    <h3>Estilo Musical</h3>
+                    <p>
+                        O Sleep Token é conhecido por quebrar padrões.
+                        Suas músicas alternam momentos calmos com piano e vocais suaves,
+                        para trechos pesados com guitarras de sete e oito cordas,
+                        bateria intensa e vocais agressivos.
+                    </p>
+                </div>
+
+                <div class="secao">
+                    <h3 id="albuns">Principais Álbuns</h3>
+                    <ul>
+                        <li>Sundowning (2019)</li>
+                        <li>This Place Will Become Your Tomb (2021)</li>
+                        <li>Take Me Back To Eden (2023)</li>
+                        <li>Even In Arcadia (2025)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="lateral">
+            <h2 id="integrantes">Integrantes</h2>
+            <ul>
+                <li><strong>Vessel</strong> – Vocalista e principal compositor.</li>
+                <li><strong>II</strong> – Baterista.</li>
+                <li><strong>III</strong> – Baixista.</li>
+                <li><strong>IV</strong> – Guitarrista.</li>
+            </ul>
+
+            <br>
+
+            <h2 id="curiosidades">Curiosidades</h2>
+            <ul>
+                <li>Os integrantes nunca revelam oficialmente suas identidades.</li>
+                <li>Os shows são chamados de "rituais".</li>
+                <li>A banda mistura diversos estilos musicais em um único álbum.</li>
+                <li>As máscaras mudam de visual ao longo das eras da banda.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="rodape">
+        <p>
+            © 2026 | Site desenvolvido para atividade do SENAI.<br>
+            Tema: Sleep Token
+        </p>
+    </div>
+</body>
+
+</html>
