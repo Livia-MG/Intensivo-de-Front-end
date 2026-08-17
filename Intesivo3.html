@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Responsivo</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            width: 100%;
+            padding: 1rem 5%;
+            background-color: #222;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            position: relative;
+            z-index: 10;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2em;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .menu-hamburguer {
+            display: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        .carrossel {
+            width: 90%;
+            max-width: 50rem;
+            margin: 3rem auto;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+        }
+
+        .carrossel input {
+            display: none;
+        }
+
+        .imagens {
+            display: flex;
+            width: 300%;
+            transition: transform 0.5s ease;
+        }
+
+        .imagens img {
+            width: 33.333%;
+            height: 25rem;
+            object-fit: cover;
+        }
+
+        .indicadores {
+            position: absolute;
+            bottom: 1rem;
+            left: 0;
+            width: 100%;
+
+            display: flex;
+            justify-content: center;
+            gap: 0.7rem;
+        }
+
+        .indicadores label {
+            width: 0.8rem;
+            height: 0.8rem;
+            background-color: white;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        #imagem1:checked ~ .imagens {
+            transform: translateX(0);
+        }
+
+        #imagem2:checked ~ .imagens {
+            transform: translateX(-33.333%);
+        }
+
+        #imagem3:checked ~ .imagens {
+            transform: translateX(-66.666%);
+        }
+
+        @media (max-width: 45rem) {
+
+            header {
+                position: relative;
+            }
+
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #222;
+
+                flex-direction: column;
+                gap: 0;
+            }
+
+            nav ul.ativo {
+                display: flex;
+            }
+
+            nav li {
+                width: 100%;
+                text-align: center;
+                padding: 1em;
+            }
+
+            nav li:hover {
+                background-color: #333;
+            }
+
+            .menu-hamburguer {
+                display: block;
+            }
+
+            .carrossel {
+                width: 90%;
+                margin: 2rem auto;
+            }
+
+            .imagens img {
+                height: 20rem;
+            }
+
+        }
+
+        @media (max-width: 30rem) {
+
+            header {
+                padding: 1rem 4%;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            .carrossel {
+                width: 100%;
+            }
+
+            .imagens img {
+                height: 15rem;
+            }
+
+            .indicadores {
+                bottom: 0.7rem;
+            }
+
+            .indicadores label {
+                width: 0.6rem;
+                height: 0.6rem;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            Meu Site
+        </div>
+
+        <nav>
+            <ul id="menu">
+                <li><a href="#">Início</a></li>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Serviços</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </nav>
+
+        <div class="menu-hamburguer" onclick="abrirMenu()">
+            ☰
+        </div>
+    </header>
+
+    <div class="carrossel">
+        <input type="radio" name="carrossel" id="imagem1" checked>
+        <input type="radio" name="carrossel" id="imagem2">
+        <input type="radio" name="carrossel" id="imagem3">
+
+        <div class="imagens">
+
+            <img src="imagem1.jpg" alt="Imagem 1">
+
+            <img src="imagem2.jpg" alt="Imagem 2">
+
+            <img src="imagem3.jpg" alt="Imagem 3">
+
+        </div>
+
+        <div class="indicadores">
+
+            <label for="imagem1"></label>
+            <label for="imagem2"></label>
+            <label for="imagem3"></label>
+
+        </div>
+    </div>
+
+    <script>
+        function abrirMenu() {
+
+            const menu = document.getElementById("menu");
+
+            menu.classList.toggle("ativo");
+
+        }
+    </script>
+
+</body>
+</html>
