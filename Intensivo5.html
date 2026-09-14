@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout com CSS</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            color: #333;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 60rem;
+            margin: 3rem auto;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .titulo {
+            grid-column: 1 / -1;
+            text-align: center;
+        }
+
+        .card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 1rem;
+
+            box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.2);
+        }
+
+        .botao-animado {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.8em 1.5em;
+
+            background-color: #007bff;
+            color: white;
+            border: none;
+
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+
+            border-radius: 0.5rem;
+
+            animation: pulsar 2s infinite;
+        }
+
+        @keyframes pulsar {
+
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.08);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+
+        }
+
+        .botoes {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .botao-forma {
+            border: none;
+            background-color: #555;
+            color: white;
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            font-weight: bold;
+
+            clip-path: polygon(
+                10% 0,
+                90% 0,
+                100% 50%,
+                90% 100%,
+                10% 100%,
+                0 50%
+            );
+        }
+
+        .botao-forma:hover {
+            background-color: #333;
+        }
+
+        .botao-triangulo {
+            border: none;
+            background-color: #007bff;
+            color: white;
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            font-weight: bold;
+
+            clip-path: polygon(
+                50% 0,
+                100% 100%,
+                0 100%
+            );
+        }
+
+        form {
+            display: grid;
+            gap: 1rem;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 0.8rem;
+
+            border: 0.1rem solid #ccc;
+            border-radius: 0.5rem;
+
+            font-size: 1rem;
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: #999;
+            font-style: italic;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 0.5rem rgba(0, 123, 255, 0.3);
+        }
+
+        textarea {
+            min-height: 7rem;
+            resize: vertical;
+        }
+
+        @media (max-width: 45rem) {
+
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .titulo {
+                grid-column: auto;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <main class="container">
+        <section class="card">
+
+            <h2>Botão Animado</h2>
+            <button class="botao-animado">
+                Clique aqui
+            </button>
+
+        </section>
+
+
+        <section class="card">
+
+            <h2>Botões Diferenciados</h2>
+            <div class="botoes">
+                <button class="botao-forma">
+                    Botão
+                </button>
+                <button class="botao-triangulo">
+                    Ação
+                </button>
+            </div>
+
+        </section>
+
+
+        <section class="card">
+
+            <h2>Formulário</h2>
+
+            <form>
+                <label for="nome">Nome:</label>
+                <input
+                    type="text"
+                    id="nome"
+                    placeholder="Digite seu nome"
+                >
+                <label for="email">E-mail:</label>
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Digite seu e-mail"
+                >
+                <label for="mensagem">Mensagem:</label>
+                <textarea
+                    id="mensagem"
+                    placeholder="Digite sua mensagem..."
+                ></textarea>
+
+                <button class="botao-forma" type="submit">
+                    Enviar
+                </button>
+            </form>
+
+        </section>
+
+    </main>
+
+</body>
+</html>
