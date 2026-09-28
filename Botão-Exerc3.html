@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Teste A/B</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .botoes {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+        }
+
+        .botao-a {
+            background-color: #007bff;
+        }
+
+        .botao-b {
+            background-color: #28a745;
+        }
+
+        button:hover {
+            opacity: 0.85;
+        }
+
+        .resultado {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #333;
+        }
+
+        .resultado p {
+            margin: 8px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <main class="container">
+
+        <h1>Teste A/B</h1>
+        <p> Clique nos botões para registrar os resultados do teste.</p>
+
+        <div class="botoes">
+            <button
+                class="botao-a"
+                onclick="contarA()">
+                Botão A
+            </button>
+
+            <button
+                class="botao-b"
+                onclick="contarB()">
+                Botão B
+            </button>
+        </div>
+
+
+        <div class="resultado">
+            <h2>Resultados</h2>
+            <p>
+                Versão A:
+                <strong id="cliquesA">0</strong>
+                cliques
+            </p>
+
+            <p>
+                Versão B:
+                <strong id="cliquesB">0</strong>
+                cliques
+            </p>
+        </div>
+
+    </main>
+
+    <script>
+
+        let cliquesA = 0;
+        let cliquesB = 0;
+
+        function contarA() {
+            cliquesA++;
+            document.getElementById("cliquesA").textContent = cliquesA;
+        }
+
+        function contarB() {
+            cliquesB++;
+            document.getElementById("cliquesB").textContent = cliquesB;
+        }
+    </script>
+
+</body>
+</html>

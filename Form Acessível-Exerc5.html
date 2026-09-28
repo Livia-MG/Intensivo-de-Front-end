@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Formulário Acessível</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 1rem;
+        }
+
+        .formulario {
+            width: 100%;
+            max-width: 30rem;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 0.8rem;
+            box-shadow: 0 0.3rem 1rem rgba(0, 0, 0, 0.15);
+        }
+
+        h1 {
+            color: #222;
+            margin-bottom: 0.5rem;
+        }
+
+        .descricao {
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .campo {
+            margin-bottom: 1.2rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.4rem;
+            font-weight: bold;
+            color: #222;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 0.1rem solid #777;
+            border-radius: 0.4rem;
+            font-size: 1rem;
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: #666;
+        }
+
+        input:focus,
+        textarea:focus,
+        button:focus {
+            outline: 0.2rem solid #005fcc;
+            outline-offset: 0.2rem;
+        }
+
+        textarea {
+            min-height: 8rem;
+            resize: vertical;
+        }
+
+        .obrigatorio {
+            color: #b00020;
+        }
+
+        .ajuda {
+            display: block;
+            margin-top: 0.3rem;
+            font-size: 0.85rem;
+            color: #555;
+        }
+
+        button {
+            width: 100%;
+            padding: 0.9rem;
+            border: none;
+            border-radius: 0.4rem;
+            background-color: #005fcc;
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #004494;
+        }
+
+        @media (max-width: 30rem) {
+
+            .formulario {
+                padding: 1.3rem;
+            }
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <main class="formulario">
+        <h1>Entre em contato</h1>
+        <p class="descricao">Preencha o formulário abaixo para enviar sua mensagem.</p>
+
+        <form>
+
+            <div class="campo">
+                <label for="nome">
+                    Nome completo
+                    <span class="obrigatorio" aria-hidden="true">*</span>
+                </label>
+
+                <input
+                    type="text"
+                    id="nome"
+                    name="nome"
+                    placeholder="Digite seu nome"
+                    autocomplete="name"
+                    required
+                    aria-required="true"
+                >
+            </div>
+
+            <div class="campo">
+                <label for="email">
+                    E-mail
+                    <span class="obrigatorio" aria-hidden="true">*</span>
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="exemplo@email.com"
+                    autocomplete="email"
+                    required
+                    aria-required="true"
+                >
+
+                <small
+                    id="ajuda-email"
+                    class="ajuda">
+                    Informe um endereço de e-mail válido.
+                </small>
+
+            </div>
+
+            <div class="campo">
+                <label for="mensagem">
+                    Mensagem
+                    <span class="obrigatorio" aria-hidden="true">*</span>
+                </label>
+
+                <textarea
+                    id="mensagem"
+                    name="mensagem"
+                    placeholder="Digite sua mensagem"
+                    required
+                    aria-required="true"
+                    aria-describedby="ajuda-mensagem"
+                ></textarea>
+
+                <small
+                    id="ajuda-mensagem"
+                    class="ajuda">
+                    Escreva sua mensagem no campo acima.
+                </small>
+            </div>
+
+            <button type="submit">Enviar mensagem</button>
+        </form>
+    </main>
+</body>
+</html>
