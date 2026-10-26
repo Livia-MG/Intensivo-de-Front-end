@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Previsão do Tempo</title>
+</head>
+
+<body>
+
+    <h1>Previsão do Tempo</h1>
+
+    <button onclick="buscarTempo()">Ver clima da minha localização</button>
+
+    <div id="resultado"></div>
+
+    <script>
+        function buscarTempo() {
+            let resultado = document.getElementById("resultado");
+
+            resultado.innerHTML = "<p>Buscando localização...</p>";
+
+            navigator.geolocation.getCurrentPosition(
+                function (posicao) {
+                    let latitude = posicao.coords.latitude;
+                    let longitude = posicao.coords.longitude;
+
+                    fetch(
+                        "https://api.open-meteo.com/v1/forecast?latitude=" +
+                        latitude +
+                        "&longitude=" +
+                        longitude +
+                        "&current=temperature_2m,wind_speed_10m"
+                    )
+                        .then(resposta => resposta.json())
+                        .then(dados => {
+                            resultado.innerHTML =
+                                "<h2>Clima atual</h2>" +
+                                "<p>Temperatura: " +
+                                dados.current.temperature_2m +
+                                " °C</p>" +
+                                "<p>Velocidade do vento: " +
+                                dados.current.wind_speed_10m +
+                                " km/h</p>";
+                        })
+                        .catch(function () {
+                            resultado.innerHTML =
+                                "<p>Erro ao buscar os dados do clima.</p>";
+                        });
+                },
+
+                function () {
+                    resultado.innerHTML =
+                        "<p>Não foi possível acessar sua localização.</p>";
+                }
+            );
+        }
+    </script>
+
+</body>
+
+</html>

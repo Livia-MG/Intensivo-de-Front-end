@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login com API</title>
+</head>
+
+<body>
+
+    <h1>Login</h1>
+
+    <label for="usuario">Usuário:</label>
+    <input type="text" id="usuario">
+
+    <br><br>
+
+    <label for="senha">Senha:</label>
+    <input type="password" id="senha">
+
+    <br><br>
+
+    <button onclick="fazerLogin()">Entrar</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        function fazerLogin() {
+            let usuario = document.getElementById("usuario").value;
+            let senha = document.getElementById("senha").value;
+
+            fetch("https://jsonplaceholder.typicode.com/users/1")
+                .then(resposta => resposta.json())
+                .then(dados => {
+                    if (usuario === dados.username && senha === "1234") {
+                        document.getElementById("resultado").textContent =
+                            "Login realizado com sucesso!";
+                    } else {
+                        document.getElementById("resultado").textContent =
+                            "Usuário ou senha incorretos.";
+                    }
+                });
+        }
+    </script>
+
+</body>
+</html>
